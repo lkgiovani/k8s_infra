@@ -1,0 +1,31 @@
+# Terraform
+terraform/.terraform/
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+**/.terraform/
+
+# Secrets / sensitive files
+*.env
+*.pem
+*.key
+secrets.yaml
+secret.yaml
+*-secret.yaml
+*-secrets.yaml
+
+# Helm
+*.tgz
+charts/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

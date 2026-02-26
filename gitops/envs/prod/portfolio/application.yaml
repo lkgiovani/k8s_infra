@@ -1,0 +1,64 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: portfolio=lghcr.io/lkgiovani/lkgiovani-portfolio
+    argocd-image-updater.argoproj.io/portfolio.update-strategy: semver
+    argocd-image-updater.argoproj.io/write-back-method: git
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/background
+  name: portfolio-app-prod
+  namespace: argocd
+spec:
+  destination:
+    namespace: prod
+    server: https://kubernetes.default.svc
+
+  project: default
+  source:
+    helm:
+      valuesObject:
+        #Deployment
+        image:
+          repository: ghcr.io/lkgiovani/lkgiovani-portfolio
+          tag: "latest"
+        service:
+          port: 3000
+        livenessProbe: null
+        readinessProbe: null
+
+        #Autoscaling
+        autoscaling:
+          enabled: true
+          maxReplicas: 2
+
+        #Ingress
+        ingress:
+          enabled: true
+          className: traefik
+          annotations:
+            cert-manager.io/cluster-issuer: cloudflare-clusterissuer
+          hosts:
+            - host: test.lkgiovani.com
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls:
+            - secretName: traefik-cert-secret
+              hosts:
+                - test.lkgiovani.com
+    path: gitops/helm/portfolio
+    repoURL: https://github.com/lkgiovani/k8s-infra.git
+    targetRevision: main
+
+  syncPolicy:
+    automated:
+      allowEmpty: false
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
