@@ -18,9 +18,9 @@ spec:
     spec:
       project: k3s-environments
       source:
-        repoURL: https://github.com/leogues/k3s-gitops.git
+        repoURL: https://github.com/lkgiovani/k8s_infra.git
         targetRevision: HEAD
-        path: envs/{{.env}}
+        path: gitops/envs/{{.env}}
         directory:
           recurse: true
       destination:

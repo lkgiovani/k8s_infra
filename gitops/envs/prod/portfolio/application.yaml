@@ -49,7 +49,7 @@ spec:
               hosts:
                 - test.lkgiovani.com
     path: gitops/helm/portfolio
-    repoURL: https://github.com/lkgiovani/k8s-infra.git
+    repoURL: https://github.com/lkgiovani/k8s_infra.git
     targetRevision: main
 
   syncPolicy:
