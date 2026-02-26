@@ -40,14 +40,14 @@ spec:
           annotations:
             cert-manager.io/cluster-issuer: cloudflare-clusterissuer
           hosts:
-            - host: test.lkgiovani.com
+            - host: todinho.lkgiovani.com
               paths:
                 - path: /
                   pathType: Prefix
           tls:
             - secretName: traefik-cert-secret
               hosts:
-                - test.lkgiovani.com
+                - todinho.lkgiovani.com
     path: gitops/helm/portfolio
     repoURL: https://github.com/lkgiovani/k8s_infra.git
     targetRevision: main

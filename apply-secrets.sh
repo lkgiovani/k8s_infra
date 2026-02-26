@@ -8,6 +8,13 @@ if [ ! -f secrets/envs/cloudflare/.env ]; then
   exit 1
 fi
 
+# External DNS
+if [ ! -f secrets/envs/external-dns/.env ]; then
+  cp secrets/envs/external-dns/.env.example secrets/envs/external-dns/.env
+  echo "Preencha secrets/envs/external-dns/.env e rode novamente."
+  exit 1
+fi
+
 # ArgoCD
 if [ ! -f secrets/envs/argocd-repo/.env ]; then
   cp secrets/envs/argocd-repo/.env.example secrets/envs/argocd-repo/.env
