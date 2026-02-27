@@ -28,7 +28,7 @@ Container Registry ──► Image Updater ──► Commit no Git
 | ArgoCD | v8.0.9 | `argocd` | GitOps — CD e sincronização com o repositório |
 | Cert-Manager | v1.17.2 | `cert-manager` | Geração e renovação automática de certificados TLS |
 | External DNS | v1.16.1 | `external-dns` | Criação automática de registros DNS no Cloudflare |
-| ArgoCD Image Updater | v0.16.0 | `argocd` | Atualização automática de imagens de container no Git |
+| ArgoCD Image Updater | v0.12.1 | `argocd` | Atualização automática de imagens de container no Git |
 
 ### Aplicações (gerenciadas pelo ArgoCD via GitOps)
 

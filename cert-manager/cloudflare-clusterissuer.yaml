@@ -4,7 +4,7 @@ metadata:
   name: cloudflare-clusterissuer
 spec:
   acme:
-    email: test@test.com
+    email: lkgiovani@gmail.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-key
