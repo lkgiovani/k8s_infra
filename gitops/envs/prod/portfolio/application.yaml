@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd-image-updater.argoproj.io/image-list: portfolio=lghcr.io/lkgiovani/lkgiovani-portfolio
+    argocd-image-updater.argoproj.io/image-list: portfolio=docker.io/lkgiovani/lkgiovani-portfolio
     argocd-image-updater.argoproj.io/portfolio.update-strategy: semver
     argocd-image-updater.argoproj.io/write-back-method: git
   finalizers:
@@ -21,7 +21,7 @@ spec:
       valuesObject:
         #Deployment
         image:
-          repository: ghcr.io/lkgiovani/lkgiovani-portfolio
+          repository: docker.io/lkgiovani/lkgiovani-portfolio
           tag: "latest"
         service:
           port: 3000
