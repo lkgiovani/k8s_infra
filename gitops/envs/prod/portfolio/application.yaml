@@ -51,6 +51,7 @@ spec:
           className: traefik
           annotations:
             cert-manager.io/cluster-issuer: cloudflare-clusterissuer
+            external-dns.alpha.kubernetes.io/target: "134.65.252.97"
           hosts:
             - host: todinho.lkgiovani.com
               paths:
