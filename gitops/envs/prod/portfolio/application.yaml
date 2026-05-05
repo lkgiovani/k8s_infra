@@ -41,6 +41,18 @@ spec:
           periodSeconds: 10
           failureThreshold: 3
 
+        #Volumes (nginx precisa escrever com readOnlyRootFilesystem=true)
+        volumes:
+          - name: nginx-cache
+            emptyDir: {}
+          - name: nginx-run
+            emptyDir: {}
+        volumeMounts:
+          - name: nginx-cache
+            mountPath: /var/cache/nginx
+          - name: nginx-run
+            mountPath: /var/run
+
         #Autoscaling
         autoscaling:
           enabled: true
