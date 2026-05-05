@@ -4,4 +4,14 @@ global:
     tag: "v3.0.3"
 
 server:
-  extraArgs: []
+  extraArgs:
+    - --insecure
+
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    annotations:
+      cert-manager.io/cluster-issuer: cloudflare-clusterissuer
+    hostname: argocd.lkgiovani.com
+    tls: true
+    https: false
