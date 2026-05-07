@@ -3,15 +3,6 @@ global:
   image:
     tag: "v3.0.3"
 
-server:
-  extraArgs:
-    - --insecure
-
-  ingress:
-    enabled: true
-    ingressClassName: traefik
-    annotations:
-      cert-manager.io/cluster-issuer: cloudflare-clusterissuer
-    hostname: argocd.lkgiovani.com
-    tls: true
-    https: false
+configs:
+  params:
+    server.insecure: true

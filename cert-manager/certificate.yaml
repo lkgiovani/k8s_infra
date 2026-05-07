@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: traefik-cert
-  namespace: kube-system
+  namespace: dns
 spec:
   secretName: traefik-cert-secret
   issuerRef:
